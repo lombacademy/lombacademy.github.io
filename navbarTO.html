@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="navbarLP.css" />
+        <title>Document</title>
+    </head>
+
+    <nav class="navbar">
+        <div class="center">
+            <img class="logo-navbar" src="logo2.png" alt="logo lombacademy" />
+            <ul>
+                <li><a href="#">Try Out</a></li>
+                <li><a href="#">Hasil Try Out</a></li>
+                <button id="login-btn">Login</button>
+                <button id="sign-up-btn">Sign Up</button>
+            </ul>
+        </div>
+    </nav>
+    <body></body>
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const logo = document.querySelector(".logo-navbar");
+        window.onscroll = function () {
+            if (this.scrollY > 20) {
+                navbar.classList.add("sticky");
+                logo.classList.add("shrink");
+            } else {
+                navbar.classList.remove("sticky");
+                logo.classList.remove("shrink");
+            }
+        };
+    </script>
+</html>

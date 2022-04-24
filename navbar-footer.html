@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Navbar Footer</title>
+        <script src="info-ksn.js"></script>
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="images/navbar footer/logo2.png"
+        />
+        <script
+            src="https://kit.fontawesome.com/6e024d5b6e.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="navbar-footer.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script src="info-osn.js"></script>
+    </head>
+    <nav class="navbar">
+        <div class="center">
+            <div class="left-content">
+                <!-- gambar-gambar ini buat ke yg logo burung medal emas (logo2.png) -->
+                <img
+                    class="logo-navbar"
+                    src="images/navbar footer/logo2.png"
+                    alt="logo lombacademy"
+                />
+            </div>
+
+            <ul class="menu-list">
+                <li><a href="#" id="home">Home</a></li>
+                <li><a href="#" id="try-out">Try Out</a></li>
+                <li><a href="#" id="info-ksn">Info OSN</a></li>
+                <!-- <li><a href="#" id="tentang-kami">Tentang Kami</a></li> -->
+                <!-- ini buat yg belom authenticated -->
+                <button id="login-btn">Masuk</button>
+                <button id="sign-up-btn">Daftar</button>
+                <!-- ini buat yg udah authenticated -->
+                <!-- source https://www.w3schools.com/howto/howto_js_dropdown.asp -->
+                <div class="dropdown">
+                    <button
+                        onclick="myFunction()"
+                        class="profile-btn"
+                        id="profile-btn"
+                    >
+                        Name
+                        <img
+                            src="images/default-pp.png"
+                            alt=""
+                            class="profile-pict"
+                        />
+                    </button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Log Out</a>
+                    </div>
+                </div>
+            </ul>
+            <div class="icon cancel-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <div id="menu-btn" class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <footer>
+        <img class="footer-logo" src="images/navbar footer/logo2.png" alt="" />
+        <div class="content">
+            <div class="center">
+                <a href="#" class="lombacademy-text">LombaCademy</a>
+                <div class="socmed">
+                    <a href="https://instagram.com/lombacademy">
+                        <img src="images/navbar footer/instagram.png" alt="" />
+                    </a>
+                    <a href="https://linkedin.com/company/lombacademy">
+                        <img src="images/navbar footer/linkedin.png" alt="" />
+                    </a>
+                    <a href="https://twitter.com/lombacademy">
+                        <img src="images/navbar footer/twitter.png" alt="" />
+                    </a>
+                    <a href="https://tiktok.com/@lombacademy">
+                        <img src="images/navbar footer/tiktok.png" alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">&#169;LombaCademy2022</div>
+    </footer>
+    <script>
+        const navbar = document.querySelector(".navbar");
+        const logo = document.querySelector(".logo-navbar");
+        const body = document.querySelector("body");
+        const menu = document.querySelector(".menu-list");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = () => {
+            menu.classList.add("active");
+            menuBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+            body.classList.add("disabledScroll");
+        };
+        cancelBtn.onclick = () => {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("hide");
+            cancelBtn.classList.remove("show");
+            body.classList.remove("disabledScroll");
+        };
+
+        window.onscroll = function () {
+            if (this.scrollY > 20) {
+                navbar.classList.add("sticky");
+                logo.classList.add("shrink");
+            } else {
+                navbar.classList.remove("sticky");
+                logo.classList.remove("shrink");
+            }
+        };
+
+        // source https://www.w3schools.com/howto/howto_js_dropdown.asp
+        /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show-dd");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches(".profile-btn")) {
+                var dropdowns =
+                    document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains("show-dd")) {
+                        openDropdown.classList.remove("show-dd");
+                    }
+                }
+            }
+        };
+    </script>
+</html>
